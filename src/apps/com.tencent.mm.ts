@@ -16,10 +16,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          fastQuery: true,
           matches: [
             '@LinearLayout[clickable=true] > [text="广告" || text="廣告" || text="Sponsored"][visibleToUser=true]',
           ],
+          fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/13000395',
             'https://i.gkd.li/i/12905837',
@@ -29,8 +29,6 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          fastQuery: true,
-          actionDelay: 300,
           position: {
             left: 'width * 0.9223',
             top: 'height * 0.5',
@@ -39,89 +37,67 @@ export default defineGkdApp({
             '@LinearLayout >2 [text="广告"][visibleToUser=false]',
             'RecyclerView > FrameLayout[childCount=1] > RelativeLayout > FrameLayout > LinearLayout > LinearLayout > LinearLayout > @LinearLayout[childCount=2][getChild(0).getChild(0).text!=null] > LinearLayout[index=1][clickable=false][visibleToUser=false]',
           ],
+          actionDelay: 300,
+          fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/14783802',
             'https://i.gkd.li/i/15531539',
             'https://i.gkd.li/i/19665911',
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/19717709',
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/19717709',
+          ],
         },
         {
           key: 2,
-          matches:
+          matches: [
             '[name$="RecyclerView"||name$="ListView"] >(1,2) RelativeLayout >3 LinearLayout > LinearLayout > LinearLayout[childCount=2] > LinearLayout[index=1][clickable=true][visibleToUser=true]',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/14647413',
             'https://i.gkd.li/i/19633571',
           ],
         },
-
-        // 预留key
-        // 第二段-新格式：点击[直接关闭]（绿色）
         {
-          preKeys: [0, 1, 2],
-          key: 24,
-          name: '点击[直接关闭]',
-          fastQuery: true,
-          matches: '[text="直接关闭"][clickable=true][visibleToUser=true]',
-        },
-
-        // 预留key
-        // 第二段
-        {
-          preKeys: [0, 1, 2],
           key: 25,
-          name: '点击[关闭]',
-          fastQuery: true,
-          anyMatches: [
-            '[text^="关闭" || text*="Close" || text="關閉此廣告"][clickable=true][visibleToUser=true]', //1
-            '@LinearLayout[clickable=true] > [text="关闭该广告" || text*="Close"][visibleToUser=true]', //2
-            '@LinearLayout[index=1][clickable=true] <2 * < * - [text*="广告"]', //3
-            '@[text="关闭该广告"] -2 [text^="对这条广告不感兴趣"][visibleToUser=true]', //4
+          name: '点击[关闭该广告]',
+          preKeys: [
+            0,
+            1,
+            2,
           ],
+          matches: [
+            '[text="关闭该广告"][clickable=true][visibleToUser=true]',
+          ],
+          fastQuery: true,
           snapshotUrls: [
-            //1
             'https://i.gkd.li/i/13926578',
             'https://i.gkd.li/i/15531274',
             'https://i.gkd.li/i/14207480',
             'https://i.gkd.li/i/15137016',
             'https://i.gkd.li/i/13791202',
-            //2
             'https://i.gkd.li/i/14783820',
             'https://i.gkd.li/i/15284966',
-            //3
             'https://i.gkd.li/i/14647839',
             'https://i.gkd.li/i/19666176',
-            //4
             'https://i.gkd.li/i/19633486',
           ],
         },
-
-        // 预留key
-        // 第三段
         {
-          preKeys: [25],
           key: 50,
-          name: '点击[关闭]',
-          matches: '[text*="关闭" || text="Close"][clickable=true]',
+          name: '点击[直接关闭]',
+          preKeys: [
+            25,
+          ],
+          matches: [
+            '[text="直接关闭"][clickable=true][visibleToUser=true]',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/12663984',
             'https://i.gkd.li/i/12905846',
             'https://i.gkd.li/i/14647940',
             'https://i.gkd.li/i/14783534',
           ],
-        },
-
-        // 预留key
-        // 第四段
-        {
-          preKeys: [50],
-          key: 75,
-          name: '点击[确认]',
-          fastQuery: true,
-          matches:
-            '@[text="确认"][visibleToUser=true] -2 [text="不感兴趣原因"]',
-          snapshotUrls: 'https://i.gkd.li/i/14647940',
         },
       ],
     },
