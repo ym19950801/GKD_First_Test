@@ -44,9 +44,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/15531539',
             'https://i.gkd.li/i/19665911',
           ],
-          excludeSnapshotUrls: [
-            'https://i.gkd.li/i/19717709',
-          ],
+          excludeSnapshotUrls: ['https://i.gkd.li/i/19717709'],
         },
         {
           key: 2,
@@ -61,14 +59,8 @@ export default defineGkdApp({
         {
           key: 25,
           name: '点击[关闭该广告]',
-          preKeys: [
-            0,
-            1,
-            2,
-          ],
-          matches: [
-            '[text="关闭该广告"][clickable=true][visibleToUser=true]',
-          ],
+          preKeys: [0, 1, 2],
+          matches: ['[text="关闭该广告"][clickable=true][visibleToUser=true]'],
           fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/13926578',
@@ -86,12 +78,8 @@ export default defineGkdApp({
         {
           key: 50,
           name: '点击[直接关闭]',
-          preKeys: [
-            25,
-          ],
-          matches: [
-            '[text="直接关闭"][clickable=true][visibleToUser=true]',
-          ],
+          preKeys: [25],
+          matches: ['[text="直接关闭"][clickable=true][visibleToUser=true]'],
           snapshotUrls: [
             'https://i.gkd.li/i/12663984',
             'https://i.gkd.li/i/12905846',
